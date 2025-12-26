@@ -1,0 +1,48 @@
+plugins {
+    id 'idea'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java-library'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+apply plugin: 'org.openjfx.javafxplugin'
+
+group 'com.github.driss2003'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://litarvan.github.io/maven'
+        name = 'LitarvanMaven'
+    }
+
+    maven {
+        url = 'https://jitpack.io'
+        name = 'JitPack'
+    }
+}
+
+dependencies {
+    implementation 'fr.litarvan:openauth:1.1.6'
+    implementation 'fr.flowarg:materialdesignfontfx:7.2.96-2'
+
+    implementation 'fr.flowarg:flowupdater:1.8.+'
+    implementation 'fr.flowarg:openlauncherlib:3.2.6'
+
+    implementation 'com.github.goxr3plus:FX-BorderlessScene:4+'
+    implementation 'com.github.oshi:oshi-core:5+'
+}
+
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.swing']
+}
+
+application {
+    getMainClass().set('com.github.driss2003.sunlauncher.Main')
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
